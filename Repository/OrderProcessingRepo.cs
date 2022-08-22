@@ -85,6 +85,7 @@ namespace ComponentProcessingService.Repository
             try
             {
                 //string path = "https://localhost:44391/api/PackagingAndDelivery/GetPackagingDeliveryCharge?ItemType=" + ComponentType + "&Qty=" + Qty.ToString();
+                //string path = "https://localhost:44343/api/PackagingAndDelivery/GetPackagingDeliveryCharge?ItemType=" + ComponentType + "&Qty=" + Qty.ToString();
                 string path = "https://localhost:44343/api/PackagingAndDelivery/GetPackagingDeliveryCharge?ItemType=" + ComponentType + "&Qty=" + Qty.ToString();
                 double product = 0;
                 HttpResponseMessage response = await client.GetAsync(path);
