@@ -70,7 +70,7 @@ namespace ComponentProcessingService
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            loggerFactory.AddLog4Net();
             app.UseCors("EnableCORS");
             //app.UseCors(x => x.AllowAnyOrigin().
             //    AllowAnyMethod().

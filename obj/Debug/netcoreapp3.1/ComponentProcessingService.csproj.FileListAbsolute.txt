@@ -52,3 +52,15 @@ C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\obj\Debug\netco
 C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\obj\Debug\netcoreapp3.1\ComponentProcessingService.dll
 C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\obj\Debug\netcoreapp3.1\ComponentProcessingService.pdb
 C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\obj\Debug\netcoreapp3.1\ComponentProcessingService.genruntimeconfig.cache
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\log4net.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\924273\Documents\FSE0-Poject\ComponentProcessingService\bin\Debug\netcoreapp3.1\log4net.config

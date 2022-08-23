@@ -1,0 +1,35 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: componentprocessing-deployment
+  labels:
+    app: ComponentProcessing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ComponentProcessing
+  template: 
+    metadata: 
+      labels:
+        app: ComponentProcessing
+    spec:
+      containers:
+      - name: componentprocessing
+        image: returnorderacr.azurecr.io/componentprocessingimage:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: returnordersecret
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: componentprocessingsvc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    api: ComponentProcessing
+    #--

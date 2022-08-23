@@ -1,6 +1,7 @@
 ﻿using ComponentProcessingService.Models;
 using ComponentProcessingService.Models.DTOs;
 using ComponentProcessingService.Repository.IRepository;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Net;
@@ -13,9 +14,11 @@ namespace ComponentProcessingService.Repository
     public class OrderProcessingRepo : IOrderProcessingRepo
     {
         private readonly ApplicationDbContext _db;
-        public OrderProcessingRepo(ApplicationDbContext db)
+        private readonly ILogger<OrderProcessingRepo> _logger;
+        public OrderProcessingRepo(ApplicationDbContext db, ILogger<OrderProcessingRepo> logger)
         {
             _db = db;
+            _logger = logger;
         }
 
         static HttpClient client = new HttpClient();
@@ -24,7 +27,7 @@ namespace ComponentProcessingService.Repository
         private int getLatestIdCount()
         {
             try
-            {
+            {                
                 int count = 0;
                 //count = _db.processedOrderData.LastOrDefault().id;
                 count = _db.processedOrderData.Count();
@@ -32,7 +35,8 @@ namespace ComponentProcessingService.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("ComponentProcessingService.Repository.getLatestIdCount", ex);
+                _logger.LogError("ComponentProcessingService.Repository.getLatestIdCount()", ex);
+                throw new Exception("ComponentProcessingService.Repository.getLatestIdCount()", ex);
             }
         }
         private int saveOrderDetails(OrderDataDto orderData)
@@ -56,7 +60,8 @@ namespace ComponentProcessingService.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("ComponentProcessingService.Repository.saveOrderDetails", ex);
+                _logger.LogError("ComponentProcessingService.Repository.saveOrderDetails()", ex);
+                throw new Exception("ComponentProcessingService.Repository.saveOrderDetails()", ex);
             }
 
         }
@@ -77,6 +82,7 @@ namespace ComponentProcessingService.Repository
 
             catch (Exception ex)
             {
+                _logger.LogError("ComponentProcessingService.Repository.savePaymentDetails()", ex);
                 throw new Exception("ComponentProcessingService.Repository.savePaymentDetails", ex);
             }
         }
@@ -86,7 +92,7 @@ namespace ComponentProcessingService.Repository
             {
                 //string path = "https://localhost:44391/api/PackagingAndDelivery/GetPackagingDeliveryCharge?ItemType=" + ComponentType + "&Qty=" + Qty.ToString();
                 //string path = "https://localhost:44343/api/PackagingAndDelivery/GetPackagingDeliveryCharge?ItemType=" + ComponentType + "&Qty=" + Qty.ToString();
-                string path = "https://roms-pkganddlvrysvc.azurewebsites.net/api/PackagingAndDelivery/GetPackagingDeliveryCharge?ItemType=" + ComponentType + "&Qty=" + Qty.ToString();
+                string path = "https://romspackaginganddeliveryservice.azurewebsites.net/api/PackagingAndDelivery/GetPackagingDeliveryCharge?ItemType=" + ComponentType + "&Qty=" + Qty.ToString();
                 double product = 0;
                 HttpResponseMessage response = await client.GetAsync(path);
                 if (response.IsSuccessStatusCode)
@@ -96,8 +102,8 @@ namespace ComponentProcessingService.Repository
                 return product;
             }
             catch (Exception ex)
-            {
-                throw new Exception("ComponentProcessingService.Repository.InvokeDeliveryAndPackagingService", ex);
+            {                             
+                throw new Exception("ComponentProcessingService.Repository.InvokeDeliveryAndPackagingService()", ex);
             }
         }
         #endregion
@@ -130,8 +136,8 @@ namespace ComponentProcessingService.Repository
             }
             catch (Exception ex)
             {
-
-                throw new Exception("ComponentProcessingService.Repository.getProcessResponse", ex);
+                _logger.LogError("ComponentProcessingService.Repository.getProcessResponse()", ex);
+                throw new Exception("ComponentProcessingService.Repository.getProcessResponse()", ex);
             }
         }
 
@@ -144,7 +150,7 @@ namespace ComponentProcessingService.Repository
                 return product;
             }
             catch (Exception ex)
-            {
+            {             
                 throw new Exception("ComponentProcessingService.Repository.getDeliveryCharge", ex);
             }
         }
@@ -176,7 +182,7 @@ namespace ComponentProcessingService.Repository
             }
             catch (Exception ex)
             {
-
+                _logger.LogError("ComponentProcessingService.Repository.CompleteProcessing", ex);
                 throw new Exception("ComponentProcessingService.Repository.CompleteProcessing", ex);
             }
         }
